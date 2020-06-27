@@ -20,6 +20,7 @@ DAMPE_INC=/DAMPE/DmpSoftware/build/include
 DAMPE_LIB=/DAMPE/DmpSoftware/build/lib
 DAMPE_INC_CNAF=/cvmfs/dampe.cern.ch/centos7/opt/releases/trunk/include
 DAMPE_LIB_CNAF=/cvmfs/dampe.cern.ch/centos7/opt/releases/trunk/lib
+BOOST_LIB=/cvmfs/dampe.cern.ch/centos7/lib
 
 S_DIR  = $(TOP)/source/
 S_INC  = $(TOP)/include/
@@ -54,7 +55,7 @@ LDFLAGS :=
 #add dips
 ifneq ($(DIPS_INCLUDE),)
 	CC_FLAGS += -I$(DIPS_INCLUDE) -I$(ANYOPT_INC) -I$(DAMPE_INC) -I$(DAMPE_INC_CNAF)
-	LDFLAGS += -lboost_system $(DIPS_LIBS) -lTreePlayer -L$(DAMPE_LIB) -L$(DAMPE_LIB_CNAF) -lDmpEvent -lDmpEventFilter -lDmpKernel -lDmpService
+	LDFLAGS += -L$(BOOST_LIB) -lboost_system $(DIPS_LIBS) -lTreePlayer -L$(DAMPE_LIB) -L$(DAMPE_LIB_CNAF) -lDmpEvent -lDmpEventFilter -lDmpKernel -lDmpService
 endif
 ####################################################
 # Flags by OS
