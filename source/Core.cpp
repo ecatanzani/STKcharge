@@ -12,6 +12,7 @@ void STKCore(
 {
     // Create output TFile
     const char* outFilePath = static_cast<const char*>(uniqueOutFile(outputPath, opt).c_str());
+    
     TFile outFile(outFilePath, "NEW", "Analysis Output File");
     if (!outFile.IsOpen())
     {

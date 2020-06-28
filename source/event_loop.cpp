@@ -20,7 +20,7 @@ inline void updateProcessStatus(const int evIdx, int &kStep, const int nevents)
     }
 }
 
-TH1D evLoop(
+void evLoop(
     const std::string inputPath,
     TFile &outFile,
     const bool verbose,
@@ -232,7 +232,9 @@ TH1D evLoop(
 
         std::cout << "\n\n ****** \n\n";
     }
-    
+
+    outFile.cd();
+
     h_chargeX.Write();
     h_chargeY.Write();
        

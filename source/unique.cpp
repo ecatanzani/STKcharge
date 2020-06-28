@@ -14,7 +14,7 @@ const std::string uniqueOutFile(
     else if (opt.getValue("output") || opt.getValue('o'))
         fPath << outputPath;
     else
-        fPath << "analysisOutFile_" << ctime << ".root";
+        fPath << "STKchargeOutFile_" << ctime << ".root";
 
     return fPath.str();
 }

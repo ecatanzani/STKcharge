@@ -23,7 +23,7 @@
 #include "DmpStkTrack.h"
 #include "DmpEvtPsdHits.h"
 
-extern TH1D evLoop(
+extern void evLoop(
     const std::string inputPath,
     TFile &outFile,
     const bool verbose,
