@@ -78,8 +78,10 @@ void evLoop(
         std::cout << "\n\nTotal number of events: " << nevents << "\n\n";
     
     // STK charge histos
-    TH1D h_chargeX("h_chargeX", "Charge distribution X", 100, 0, 1000);
-    TH1D h_chargeY("h_chargeY", "Charge distribution Y", 100, 0, 1000);
+    TH1D h_chargeX("h_chargeX", "Charge distribution X", 1000, 0, 1000);
+    TH1D h_chargeY("h_chargeY", "Charge distribution Y", 1000, 0, 1000);
+    TH2D h_charge2D("h_charge2D", "STK charge", 1000, 0, 1000, 1000, 0, 1000);
+    TH1D h_charge("h_charge", "Mean STK charge", 1000, 0, 1000);
 
     // Create and load acceptance events cuts from config file
     cuts_conf charge_cuts;
@@ -211,7 +213,9 @@ void evLoop(
             if (filter_all_cut)
                 fillChargeHistos(
                     h_chargeX, 
-                    h_chargeY, 
+                    h_chargeY,
+                    h_charge,
+                    h_charge2D,
                     event_best_track,
                     stkclusters);
 
@@ -237,5 +241,7 @@ void evLoop(
 
     h_chargeX.Write();
     h_chargeY.Write();
+    h_charge.Write();
+    h_charge2D.Write();
        
 }
