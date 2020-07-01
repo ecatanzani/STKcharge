@@ -83,6 +83,12 @@ void evLoop(
     TH2D h_charge2D("h_charge2D", "STK charge", 1000, 0, 1000, 1000, 0, 1000);
     TH1D h_charge("h_charge", "Mean STK charge", 1000, 0, 1000);
 
+    // Sumw2 to charge histos
+    h_chargeX.Sumw2();
+    h_chargeY.Sumw2(); 
+    h_charge.Sumw2();   
+    h_charge2D.Sumw2();
+
     // Create and load acceptance events cuts from config file
     cuts_conf charge_cuts;
     data_active_cuts active_cuts;
